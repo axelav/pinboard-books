@@ -1,0 +1,16 @@
+@import 'normalize.css';
+@import 'basscss';
+
+:root {
+  --font-family-serif: "Palatino Linotype", "Book Antiqua", Palatino, FreeSerif, serif;
+}
+
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+
+body,
+:--heading { font-family: var(--font-family-serif); }
+
+img { display: block; }
+
+/* TODO: adjust header styles on home, note, etc */
+.home > article > section h2 { font-size: 1rem; }
