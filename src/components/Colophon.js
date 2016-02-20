@@ -1,14 +1,13 @@
+import React from 'react'
 
-var h = require('hyperscript')
+export default function (props) {
+  let currentYear = (new Date).getFullYear()
 
-module.exports = Colophon
-
-function Colophon (data) {
-  var currentYear = (new Date).getFullYear()
-  return h('div.colophon',
-    h('p', '&copy; ' + data.startYear + '-' + currentYear + ' ' + data.user.fullname,
-      h('br'),
-      h('span', 'Data extracted from https://pinboard.in/u:' + data.user.username)
-    )
+  return (
+    <div className='colophon'>
+      <p>&copy; {props.startYear}&mdash;{currentYear} {props.user.fullname}</p>
+      <br />
+      <span>Data extracted from https://pinboard.in/u:{props.user.username}</span>
+    </div>
   )
 }

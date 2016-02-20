@@ -1,20 +1,16 @@
+import React from 'react'
+import formatDate from '../../lib/format-dates'
 
+import Bookmark from './Bookmark'
 
-var h = require('hyperscript')
-var map = require('lodash.map')
-var formatDate = require('../format-date')
-
-var Bookmark = require('./Bookmark')
-
-module.exports = Day
-
-function Day (data) {
-  var day = formatDate(data[0].datetime)
-  return h('div.day',
-    h('h3', day,
-      map(data, function (x) {
-        return Bookmark(x)
-      })
-    )
+export default function (props) {
+  let date = formatDate(props.day[0].datetime)
+  return (
+    <div className='day'>
+      <h3>{date}</h3>
+      <ul>
+        {props.day.map((bookmark) => <Bookmark bookmark={bookmark} />)}
+      </ul>
+    </div>
   )
 }

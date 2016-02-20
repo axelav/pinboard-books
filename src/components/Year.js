@@ -2,48 +2,34 @@ import React from 'react'
 
 import userConfig from '../../conf/user'
 import bookmarksByYear, { years } from '../../lib/bookmarks'
+import groupBy from 'lodash.groupBy'
+
+import Front from './Front'
+import Colophon from './Colophon'
+import Cover from './Cover'
+import TOC from './TOC'
+import Months from './Months'
 
 export default function (props) {
-  let year = props.params.year
+  let selectedYear = props.params.year
   let data = {
-    year: year,
     startYear: years[0],
-    volume: year - years[0] + 1,
+    volume: selectedYear - years[0] + 1,
     user: userConfig,
-    count: bookmarksByYear[year].length,
-    bookmarks: bookmarksByYear[year]
+    bookmarks: bookmarksByYear[selectedYear]
   }
+
+  let bookmarksByMonth = groupBy(data.bookmarks, (x) => new Date(x.datetime).getMonth())
+  let selectedMonths = Object.keys(bookmarksByMonth)
+
   return (
-    <div>
-      <div>{data.year}</div>
+    <div className='year'>
+      <Front year={selectedYear} user={userConfig} />
+      <Colophon year={selectedYear} startYear={data.startYear} user={userConfig}/>
+      <Cover year={selectedYear} volume={data.volume} user={userConfig} />
+      <TOC months={selectedMonths} />
+      <Months bookmarksByMonth={bookmarksByMonth} />
     </div>
   )
 }
-
-
-
-// var h = require('hyperscript')
-// var groupBy = require('lodash.groupby')
-
-// var Front = require('./Front')
-// var Colophon = require('./Colophon')
-// var Cover = require('./Cover')
-// var TOCList = require('./TOCList')
-// var Months = require('./Months')
-
-// module.exports = Year
-
-// function Year (data) {
-//   var bookmarksByMonth = groupBy(data.bookmarks, function (x) {
-//     return new Date(x.datetime).getMonth()
-//   })
-//   return h('div.year',
-//     Front(data),
-//     Colophon(data),
-//     Cover(data),
-//     TOCList(bookmarksByMonth),
-//     Months(bookmarksByMonth)
-//   )
-
-//   // TODO: create tag index
-// }
+// TODO: create tag index

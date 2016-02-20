@@ -1,13 +1,11 @@
+import React from 'react'
 
-
-var h = require('hyperscript')
-
-module.exports = Cover
-
-function Cover (data) {
-  return h('div.cover',
-    h('h1', data.user.title + ': ' + data.year),
-    h('h2', data.user.fullname),
-    h('h3', 'Volume ' + data.volume)
+export default function (props) {
+  return (
+    <div className='cover'>
+      <h1>{props.user.title}: {props.year}</h1>
+      <h2>{props.user.fullname}</h2>
+      <h3>Volume {props.volume}</h3>
+    </div>
   )
 }

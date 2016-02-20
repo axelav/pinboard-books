@@ -1,11 +1,9 @@
+import React from 'react'
 
-
-var h = require('hyperscript')
-
-module.exports = Front
-
-function Front (data) {
-  return h('div.front',
-    h('h2', data.user.title + ': ' + data.year)
+export default function (props) {
+  return (
+    <div className='front'>
+      <h2>{props.user.title}: {props.year}</h2>
+    </div>
   )
 }

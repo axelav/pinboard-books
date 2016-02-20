@@ -4,7 +4,7 @@ import { years } from '../../lib/bookmarks'
 
 export default function (props) {
   return (
-    <ul className="year-list">
+    <ul className='year-list'>
       {years.map((x) => {
         let url = '/year/' + x
         return (
