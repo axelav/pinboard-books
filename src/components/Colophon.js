@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function (props) {
-  let currentYear = (new Date).getFullYear()
+  let currentYear = (new Date()).getFullYear()
 
   return (
     <div className='colophon'>

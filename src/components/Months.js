@@ -6,7 +6,7 @@ import Day from './Day'
 
 export default function (props) {
   return (
-    <div className="months">
+    <div className='months'>
       {Object.keys(props.bookmarksByMonth).map((monthKey) => {
         let month = props.bookmarksByMonth[monthKey]
         let monthName = MONTHS[(month[0].datetime).getMonth()]

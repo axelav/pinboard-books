@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default (props) => {
-
   return (
     <li className='bookmark'>
       <h4 className='title'>{props.bookmark.description}</h4>

@@ -9,7 +9,7 @@ const root = document.getElementById('root')
 
 render((
   <Router history={browserHistory}>
-    <Route path="/" component={YearsList} />
-    <Route path="year/:year" component={Year} />
+    <Route path='/' component={YearsList} />
+    <Route path='year/:year' component={Year} />
   </Router>
 ), root)
