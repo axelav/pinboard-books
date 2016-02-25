@@ -2,14 +2,14 @@ import React from 'react'
 import { Link } from 'react-router'
 import { years } from '../../lib/bookmarks'
 
-export default function (props) {
+export default (props) => {
   return (
     <ul className='year-list'>
-      {years.map((x) => {
-        let url = '/year/' + x
+      {years.map((year) => {
+        let url = '/year/' + year
         return (
-          <li key={x}>
-            <Link to={url}>{x}</Link>
+          <li key={year}>
+            <Link to={url}>{year}</Link>
           </li>
         )
       })}

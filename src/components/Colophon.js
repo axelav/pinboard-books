@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function (props) {
+export default (props) => {
   let currentYear = (new Date()).getFullYear()
 
   return (

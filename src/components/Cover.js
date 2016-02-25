@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function (props) {
+export default (props) => {
   return (
     <div className='cover'>
       <h1>{props.user.title}: {props.year}</h1>
