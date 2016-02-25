@@ -46,5 +46,11 @@
     "raw-loader": "^0.5.1",
     "standard": "^6.0.7",
     "style-loader": "^0.13.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
   }
 }
